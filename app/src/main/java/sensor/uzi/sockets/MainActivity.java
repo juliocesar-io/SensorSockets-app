@@ -24,6 +24,10 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.UUID;
 
 
@@ -59,6 +63,10 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 
     private ProgressDialog mProgress;
 
+    private DatabaseReference mDatabase;
+
+
+
 
 
     @Override
@@ -74,6 +82,12 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
         mTemperature = (TextView) findViewById(R.id.text_temperature);
         mHumidity = (TextView) findViewById(R.id.text_humidity);
         mPressure = (TextView) findViewById(R.id.text_pressure);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+
+
+
 
         /*
          * Bluetooth in Android 4.3 is accessed via the BluetoothManager, rather than
@@ -549,6 +563,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
         double humidity = SensorTagData.extractHumidity(characteristic);
 
         mHumidity.setText(String.format("%.0f%%", humidity));
+        mDatabase.child("ble").child("humidity").setValue(humidity);
     }
 
     private int[] mPressureCals;
@@ -563,9 +578,13 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 
         // mTemperature.setText(String.format("%.1f\u00B0C", temp));
         mPressure.setText(String.format("%.2f", pressure));
+        mDatabase.child("ble").child("pressure").setValue(pressure);
     }
     public void updateAmbTemp(BluetoothGattCharacteristic characteristic){
         JAJA = SensorTagData.extractAmbientTemperature(characteristic);
+
+        mDatabase.child("ble").child("temperature").setValue(JAJA);
+
         mTemperature.setText(String.format("%.1f\u00B0C",JAJA));
     }
 }

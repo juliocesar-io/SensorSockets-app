@@ -3,51 +3,19 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal" >
 
-    <EditText
-        android:id="@+id/input_ip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/text_pressure"
-        android:layout_below="@+id/textView4"
-        android:ems="10"
-        android:hint="@string/hint_ip" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/input_port"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/input_ip"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_below="@+id/input_ip"
-        android:ems="10"
-        android:hint="@string/hint_port" />
-
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/input_port"
-        android:layout_alignRight="@+id/input_ip" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_marginTop="22dp"
-        android:text="Conectar al servidor"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="Monitoreo remoto"
+        android:layout_below="@+id/text_pressure"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_marginTop="66dp" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/input_port"
-        android:layout_below="@+id/input_port"
         android:layout_marginTop="21dp"
         android:text="Sensores Activos"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -70,7 +38,8 @@
         android:layout_alignRight="@+id/text_humidity"
         android:layout_below="@+id/textView3"
         android:text="pres"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="#7e7e7e" />
 
     <TextView
         android:id="@+id/text_humidity"
@@ -79,7 +48,8 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:text="hum"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="#7e7e7e" />
 
     <TextView
         android:id="@+id/text_temperature"
@@ -88,7 +58,8 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:text="temps"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="#7e7e7e" />
 
     <TextView
         android:id="@+id/textView1"
@@ -112,5 +83,13 @@
         android:text="Humedad"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="17sp" />
+
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chronometer"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/switch1"
+        android:layout_alignStart="@+id/switch1" />
 
 </RelativeLayout>

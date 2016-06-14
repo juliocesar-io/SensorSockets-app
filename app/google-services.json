@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "837439991477",
+    "firebase_url": "https://sensor-push-36d97.firebaseio.com",
+    "project_id": "sensor-push-36d97",
+    "storage_bucket": "sensor-push-36d97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837439991477:android:b4e0ca4030367638",
+        "android_client_info": {
+          "package_name": "sensor.uzi.sockets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837439991477-o9fh9el4js6c7879eunp6qgcjev2d87a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sensor.uzi.sockets",
+            "certificate_hash": "48601C5FB606800AAE71CA8F1C9CAAE39F0EAE6C"
+          }
+        },
+        {
+          "client_id": "837439991477-mrvrvhf7s5hkgrnen2cpgvf2p0t1megd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5rsIXKefS5K2341lDalsce_vla3k_yh0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837439991477-mrvrvhf7s5hkgrnen2cpgvf2p0t1megd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
