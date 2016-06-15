@@ -3,6 +3,7 @@ package sensor.uzi.sockets;
 import static java.util.UUID.fromString;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -12,6 +13,8 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -64,6 +67,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
     private ProgressDialog mProgress;
 
     private DatabaseReference mDatabase;
+    private Context context;
 
 
 
@@ -585,6 +589,30 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 
         mDatabase.child("ble").child("temperature").setValue(JAJA);
 
-        mTemperature.setText(String.format("%.1f\u00B0C",JAJA));
+        if (JAJA < 28){
+            showAlert( Double.toString(JAJA));
+        }
+
+
+
+        mTemperature.setText(String.format("%.1f\u00B0C", JAJA));
+    }
+
+    public void showAlert(String t){
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Alerta de temperatura")
+                .setMessage("La temperatura esta a: " + t )
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }
